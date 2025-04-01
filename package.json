@@ -1,0 +1,14 @@
+{
+  "name": "wave-ai",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "worker:dev": "cd worker && pnpm run dev",
+    "worker:deploy": "cd worker && pnpm run deploy",
+    "worker:type": "cd worker && pnpm run cf-typegen"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "packageManager": "pnpm@10.6.4"
+}

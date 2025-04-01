@@ -11,8 +11,11 @@
  * Learn more at https://developers.cloudflare.com/workers/
  */
 
+import { handleRequest } from './request';
+
 export default {
 	async fetch(request, env, ctx): Promise<Response> {
-		return new Response('Hello World!');
+		// return new Response('Hello World!');
+		return handleRequest(request, env, ctx);
 	},
 } satisfies ExportedHandler<Env>;
