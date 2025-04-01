@@ -21,7 +21,7 @@ export async function handleRequest(request: Request, env: Env, ctx: ExecutionCo
 	const method = `${request.method}`.toLowerCase();
 
 	const serverPage = serverPages.find((page) => {
-		return page.path === path;
+		return page.path === path.replace('/api', '');
 	});
 	if (!serverPage) {
 		return generateResponse(404, 'Cannot find API endpoint');
