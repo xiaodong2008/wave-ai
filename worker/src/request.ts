@@ -42,8 +42,6 @@ export async function handleRequest(request: Request, env: Env, ctx: ExecutionCo
 	}
 
 	// check missing params or invalid types
-	// Object.entries(serverPage.params).forEach(([key, value]) => {
-	// });
 	function checkParams(params: RequestParams, data: any) {
 		for (const [key, value] of Object.entries(params)) {
 			if (typeof data[key] === 'undefined') {
