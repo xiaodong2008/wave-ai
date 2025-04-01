@@ -100,7 +100,7 @@ export function generateResponse(code: number, data: string | { [key: string]: a
 		status: code,
 		headers: {
 			'Content-Type': 'application/json',
-			'Access-Control-Allow-Origin': '*',
+			'Access-Control-Allow-Origin': 'localhost',
 			'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
 			'Access-Control-Allow-Headers': 'Content-Type',
 		},
