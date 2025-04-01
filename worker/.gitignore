@@ -173,3 +173,4 @@ dist
 
 # secret
 wrangler.jsonc
+config.ts

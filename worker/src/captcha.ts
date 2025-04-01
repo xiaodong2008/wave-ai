@@ -1,4 +1,4 @@
-import { getEnvValue } from './utils';
+import config from './config';
 
 interface APIResponse {
 	success: boolean;
@@ -11,7 +11,7 @@ export async function verifyCaptcha(ip: string, captcha: string, env: any): Prom
 	const url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
 	const result = await fetch(url, {
 		body: JSON.stringify({
-			secret: getEnvValue(env, 'TURNSTILE_SECRET'),
+			secret: config.turnstile_secret,
 			response: captcha,
 			remoteip: ip,
 		}),

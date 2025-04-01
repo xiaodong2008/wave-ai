@@ -2,7 +2,7 @@ import { ServerPage, generateResponse } from '../request';
 
 export default {
 	main(data, request, env, ctx) {
-		return generateResponse(200, {
+		return generateResponse(request, 200, {
 			data: data,
 			message: 'pong',
 		});
