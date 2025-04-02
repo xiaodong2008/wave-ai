@@ -1,30 +1,69 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import Sidebar from "./components/Sidebar.vue";
+import Topbar from "./components/Topbar.vue";
 </script>
 
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div class="container">
+    <Topbar />
+    <div style="height: 100%; display: flex; gap: 10px">
+      <Sidebar />
+      <div class="view">
+        <RouterView v-slot="{ Component }">
+          <transition name="fade" mode="out-in">
+            <component :is="Component" />
+          </transition>
+        </RouterView>
+      </div>
+    </div>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+<style scoped lang="scss">
+.container {
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  // justify-content: center;
+  padding: 10px;
+  gap: 10px;
+  height: 100%;
+  // background-color: #f0f0f0;
+
+  .view {
+    width: 100%;
+    border: 1px solid rgb(63, 63, 70);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    // padding: 10px;
+  }
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.5s;
+  position: absolute;
+  left: 0;
+  right: 0;
+  // top: 10px;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-to,
+.fade-leave-from {
+  opacity: 1;
+}
+
+.fade-enter-from {
+  transform: translateX(20px);
+}
+
+.fade-leave-to {
+  transform: translateX(-20px);
 }
 </style>
